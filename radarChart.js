@@ -322,9 +322,6 @@ function RadarChart(id, data, options) {
 		d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 			.transition().duration(200)
 			.style("fill-opacity", 0.65)
-		d3.select("." + data[d][1][areaName].replace(/\s+/g, ''))
-			.transition().duration(200)
-			.style("fill-opacity", 0)
 	}
 
 	// on mouseout for the legend symbol
