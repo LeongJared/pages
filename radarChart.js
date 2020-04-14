@@ -15,9 +15,9 @@ function RadarChart(id, data, options) {
 		maxValue: 0, 				//What is the value that the biggest circle will represent
 		labelFactor: 1.25, 			//How much farther than the radius of the outer circle should the labels be placed
 		wrapWidth: 60, 			//The number of pixels after which a label needs to be given a new line
-		opacityArea: 0.15, 			//The opacity of the area of the blob
-		dotRadius: 4, 				//The size of the colored circles of each blog
-		opacityCircles: 0.5, 			//The opacity of the circles of each blob
+		opacityArea: 0.05, 			//The opacity of the area of the blob
+		dotRadius: 7, 				//The size of the colored circles of each blog
+		opacityCircles: 0.1, 			//The opacity of the circles of each blob
 		strokeWidth: 2, 			//The width of the stroke around each blob
 		roundStrokes: false,			//If true the area and stroke will follow a round path (cardinal-closed)
 		color: d3.scale.category10(),		//Color function
@@ -205,7 +205,7 @@ function RadarChart(id, data, options) {
 			//Bring back the hovered over blob
 			d3.select(this)
 				.transition().duration(200)
-				.style("fill-opacity", 0.65);
+				.style("fill-opacity", 0.75);
 		})
 		.on('mouseout', function(){
 			//Bring back all blobs
@@ -218,7 +218,8 @@ function RadarChart(id, data, options) {
 	blobWrapper.append("path")
 		.attr("class", "radarStroke")
 		.attr("d", function(d,i) { return radarLine(d); })
-		.style("stroke-width", cfg.strokeWidth + "px")
+		//.style("stroke-width", cfg.strokeWidth + "px")
+		.style("stroke-width", cfg.strokeWidth-.7)
 		.style("stroke", function(d,i) { return cfg.color(i); })
 		.style("fill", "none")
 		.style("filter" , "url(#glow)");
@@ -274,7 +275,8 @@ function RadarChart(id, data, options) {
 	var tooltip = g.append("text")
 		.attr("class", "tooltip")
 		.style("opacity", 1)
-		.style("font-size", "15px");
+		.style("font-size", "15px")
+		.style("color", "white");
 
 	/////////////////////////////////////////////////////////
 	/////////////////// Helper Functions ////////////////////
