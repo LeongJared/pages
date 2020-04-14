@@ -34,6 +34,7 @@ function RadarChart(id, data, options) {
 		}//for i
 	}//if
 
+	var categoryCount = count
 	//Map the fields specified in the configuration
 	// to the axis and value variables
 	var axisName = cfg["axisName"],
@@ -205,7 +206,7 @@ function RadarChart(id, data, options) {
 			//Bring back the hovered over blob
 			d3.select(this)
 				.transition().duration(200)
-				.style("fill-opacity", 0.75);
+				.style("fill-opacity", 0.65);
 		})
 		.on('mouseout', function(){
 			//Bring back all blobs
@@ -226,6 +227,7 @@ function RadarChart(id, data, options) {
 		.style("fill", "none")
 		.style("filter" , "url(#glow)");
 
+	
 	//Append the circles
 	blobWrapper.selectAll(".radarCircle")
 		.data(function(d,i) { return d; })
@@ -345,6 +347,8 @@ function RadarChart(id, data, options) {
 				.style("fill-opacity", 0);
 			d3.selectAll(".radarStroke")
 				.style("stroke-width", 0);
+			d3.selectAll(".radarCircle")
+				.style("fill-opacity", 0);
 			//Bring back the hovered over blob
 			d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 				.style("fill-opacity", 0.65)
@@ -358,6 +362,8 @@ function RadarChart(id, data, options) {
 				.style("fill-opacity", cfg.opacityArea);
 			d3.selectAll(".radarStroke")
 				.style("stroke-width", 1.3);
+			d3.selectAll(".radarCircle")
+				.style("fill-opacity", 0.8);
 			clicked = false;
 		}
 	}
