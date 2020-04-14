@@ -372,7 +372,7 @@ function RadarChart(id, data, options) {
 		}))
 		.on("cellover", function(d){ cellover(d); })
 		.on("cellout", function(d) { cellout(); })
-		.on("click", function(d){ mouseClick(d); });
+		.on("cellclick", function(d){ mouseClick(d); });
 
 	svg.select(".legendOrdinal")
 		.call(legendOrdinal);
