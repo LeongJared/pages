@@ -215,8 +215,10 @@ function RadarChart(id, data, options) {
 		});
 
 	//Create the outlines
-	blobWrapper.append("path")
-		.attr("class", "radarStroke")
+	blobWrapper.append("path")//"radarStroke")
+		.attr("class", function(d) {
+			return "radarStroke" + " " + d[0][areaName].replace(/\s+/g, '')+"stroke"
+		})
 		.attr("d", function(d,i) { return radarLine(d); })
 		//.style("stroke-width", cfg.strokeWidth + "px")
 		.style("stroke-width", cfg.strokeWidth-.7)
@@ -249,7 +251,9 @@ function RadarChart(id, data, options) {
 	blobCircleWrapper.selectAll(".radarInvisibleCircle")
 		.data(function(d,i) { return d; })
 		.enter().append("circle")
-		.attr("class", "radarInvisibleCircle")
+		.attr("class", function(d) {
+			return "radarInvisibleCircle" + " " + d[0][areaName].replace(/\s+/g, '')+"circle"
+		})
 		.attr("r", cfg.dotRadius*1.5)
 		.attr("cx", function(d,i){ return rScale(d[value]) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("cy", function(d,i){ return rScale(d[value]) * Math.sin(angleSlice*i - Math.PI/2); })
