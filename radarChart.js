@@ -321,7 +321,7 @@ function RadarChart(id, data, options) {
 		//Bring back the hovered over blob
 		d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 			.transition().duration(200)
-			.style("fill-opacity", 0.8)
+			.style("fill-opacity", 0.65)
 	}
 
 	// on mouseout for the legend symbol
@@ -330,6 +330,25 @@ function RadarChart(id, data, options) {
 		d3.selectAll(".radarArea")
 			.transition().duration(200)
 			.style("fill-opacity", cfg.opacityArea);
+	}
+	var clicked = false;
+	function mouseClick(d) {
+		if(clicked == false)
+		{
+			d3.selectAll(".radarArea")
+				.style("fill-opacity", 0);
+			//Bring back the hovered over blob
+			d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
+				.style("fill-opacity", 0.65)
+			clicked = true;
+		}
+		else
+		{
+			d3.selectAll(".radarArea")
+				.transition().duration(200)
+				.style("fill-opacity", cfg.opacityArea);
+			clicked = false;
+		}
 	}
 
 	/////////////////////////////////////////////////////////
@@ -351,7 +370,8 @@ function RadarChart(id, data, options) {
 			return data[d][0][areaName];
 		}))
 		.on("cellover", function(d){ cellover(d); })
-		.on("cellout", function(d) { cellout(); });
+		.on("cellout", function(d) { cellout(); })
+		.on("mouseClick", function(d){ mouseClick(d); });
 
 	svg.select(".legendOrdinal")
 		.call(legendOrdinal);
