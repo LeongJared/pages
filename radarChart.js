@@ -356,7 +356,7 @@ function RadarChart(id, data, options) {
 			d3.selectAll(".radarArea")
 				.style("fill-opacity", cfg.opacityArea);
 			d3.selectAll(".radarStroke")
-				.style("fill-opacity", cfg.opacityArea);
+				.style("fill-opacity", 1);
 			clicked = false;
 		}
 	}
