@@ -34,7 +34,7 @@ function RadarChart(id, data, options) {
 		}//for i
 	}//if
 
-	//Map the fields specified in the configuration 
+	//Map the fields specified in the configuration
 	// to the axis and value variables
 	var axisName = cfg["axisName"],
 		areaName = cfg["areaName"],
@@ -89,7 +89,7 @@ function RadarChart(id, data, options) {
 		.attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
 		.attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
 		.attr("class", "radar"+id);
-	//Append a g element		
+	//Append a g element
 	var g = svg.append("g")
 		.attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.h/2 + cfg.margin.top) + ")");
 
@@ -180,13 +180,13 @@ function RadarChart(id, data, options) {
 		radarLine.interpolate("cardinal-closed");
 	}
 
-	//Create a wrapper for the blobs	
+	//Create a wrapper for the blobs
 	var blobWrapper = g.selectAll(".radarWrapper")
 		.data(data)
 		.enter().append("g")
 		.attr("class", "radarWrapper");
 
-	//Append the backgrounds	
+	//Append the backgrounds
 	blobWrapper
 		.append("path")
 		.attr("class", function(d) {
@@ -214,7 +214,7 @@ function RadarChart(id, data, options) {
 				.style("fill-opacity", cfg.opacityArea);
 		});
 
-	//Create the outlines	
+	//Create the outlines
 	blobWrapper.append("path")
 		.attr("class", "radarStroke")
 		.attr("d", function(d,i) { return radarLine(d); })
@@ -274,7 +274,7 @@ function RadarChart(id, data, options) {
 	var tooltip = g.append("text")
 		.attr("class", "tooltip")
 		.style("opacity", 1)
-		.style("font-size", "20px");
+		.style("font-size", "15px");
 
 	/////////////////////////////////////////////////////////
 	/////////////////// Helper Functions ////////////////////
@@ -317,7 +317,7 @@ function RadarChart(id, data, options) {
 		//Bring back the hovered over blob
 		d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 			.transition().duration(200)
-			.style("fill-opacity", 0.65);
+			.style("fill-opacity", 0.8);
 	}
 
 	// on mouseout for the legend symbol
