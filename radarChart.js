@@ -321,7 +321,21 @@ function RadarChart(id, data, options) {
 		//Bring back the hovered over blob
 		d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 			.transition().duration(200)
-			.style("fill-opacity", 0.8);
+			.style("fill-opacity", 0.8)
+			blobCircleWrapper.selectAll(".radarInvisibleCircle")
+				.on("mouseover", function(d,i) {
+					newX =  parseFloat(d3.select(this).attr('cx')) - 10;
+					newY =  parseFloat(d3.select(this).attr('cy')) - 10;
+
+					tooltip
+					.attr('x', newX)
+					.attr('y', newY)
+					.text(Format(d[value]))
+					.transition().duration(200)
+					.style('opacity', 1)
+					.style("fill", "#ffffff");
+
+				})
 	}
 
 	// on mouseout for the legend symbol
