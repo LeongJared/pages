@@ -344,12 +344,12 @@ function RadarChart(id, data, options) {
 			d3.selectAll(".radarArea")
 				.style("fill-opacity", 0);
 			d3.selectAll(".radarStroke")
-				.style("fill-opacity", 0);
+				.style("stroke-width", 0);
 			//Bring back the hovered over blob
 			d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 				.style("fill-opacity", 0.65)
 			d3.select("." + data[d][0][areaName].replace(/\s+/g, '') + "stroke")
-				.style("fill-opacity", 1)
+				.style("stroke-width", 1.3)
 			clicked = true;
 		}
 		else
@@ -357,7 +357,7 @@ function RadarChart(id, data, options) {
 			d3.selectAll(".radarArea")
 				.style("fill-opacity", cfg.opacityArea);
 			d3.selectAll(".radarStroke")
-				.style("fill-opacity", 1);
+				.style("stroke-width", 1.3);
 			clicked = false;
 		}
 	}
