@@ -34,7 +34,6 @@ function RadarChart(id, data, options) {
 		}//for i
 	}//if
 
-	var categoryCount = count
 	//Map the fields specified in the configuration
 	// to the axis and value variables
 	var axisName = cfg["axisName"],
@@ -347,6 +346,8 @@ function RadarChart(id, data, options) {
 				.style("fill-opacity", 0);
 			d3.selectAll(".radarStroke")
 				.style("stroke-width", 0);
+			d3.selectAll(".radarCircle")
+				.style("fill-opactiy", 0);
 			//Bring back the hovered over blob
 			d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 				.style("fill-opacity", 0.65)
@@ -360,6 +361,8 @@ function RadarChart(id, data, options) {
 				.style("fill-opacity", cfg.opacityArea);
 			d3.selectAll(".radarStroke")
 				.style("stroke-width", 1.3);
+			d3.selectAll(".radarCircle")
+				.style("fill-opactiy", 0.8);
 			clicked = false;
 		}
 	}
