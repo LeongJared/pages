@@ -343,15 +343,19 @@ function RadarChart(id, data, options) {
 		{
 			d3.selectAll(".radarArea")
 				.style("fill-opacity", 0);
+			d3.selectAll(".radarStroke")
+				.style("fill-opacity", 0);
 			//Bring back the hovered over blob
 			d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 				.style("fill-opacity", 0.65)
+			d3.select("." + data[d][0][areaName].replace(/\s+/g, '') + "stroke")
 			clicked = true;
 		}
 		else
 		{
 			d3.selectAll(".radarArea")
-				.transition().duration(200)
+				.style("fill-opacity", cfg.opacityArea);
+			d3.selectAll(".radarStroke")
 				.style("fill-opacity", cfg.opacityArea);
 			clicked = false;
 		}
