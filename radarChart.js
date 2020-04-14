@@ -324,8 +324,8 @@ function RadarChart(id, data, options) {
 			.style("fill-opacity", 0.8)
 			blobCircleWrapper.selectAll(".radarInvisibleCircle")
 				.on("mouseover", function(d,i) {
-					newX =  parseFloat(d3.select(this).attr('cx')) - 10;
-					newY =  parseFloat(d3.select(this).attr('cy')) - 10;
+					newX =  parseFloat(d3.select("." + data[d][0][areaName]).attr('cx')) - 10;
+					newY =  parseFloat(d3.select("." + data[d][0][areaName]).attr('cy')) - 10;
 
 					tooltip
 					.attr('x', newX)
