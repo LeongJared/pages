@@ -331,6 +331,7 @@ function RadarChart(id, data, options) {
 			.transition().duration(200)
 			.style("fill-opacity", cfg.opacityArea);
 	}
+	
 	var clicked = false;
 	function mouseClick(d) {
 		if(clicked == false)
@@ -370,8 +371,8 @@ function RadarChart(id, data, options) {
 			return data[d][0][areaName];
 		}))
 		.on("cellover", function(d){ cellover(d); })
-		.on("cellout", function(d) { cellout(); })
-		.on("mouseClick", function(d){ mouseClick(d); });
+		.on("cellout", function(d) { cellout(); });
+		//.on("mouseClick", function(d){ mouseClick(d); });
 
 	svg.select(".legendOrdinal")
 		.call(legendOrdinal);
