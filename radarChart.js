@@ -251,9 +251,10 @@ function RadarChart(id, data, options) {
 	blobCircleWrapper.selectAll(".radarInvisibleCircle")
 		.data(function(d,i) { return d; })
 		.enter().append("circle")
-		.attr("class", function(d) {
+		.attr("class", "radarInvisibleCircle")
+		/*.attr("class", function(d) {
 			return "radarInvisibleCircle" + " " + d[0][areaName].replace(/\s+/g, '')+"circle"
-		})
+		})*/
 		.attr("r", cfg.dotRadius*1.5)
 		.attr("cx", function(d,i){ return rScale(d[value]) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("cy", function(d,i){ return rScale(d[value]) * Math.sin(angleSlice*i - Math.PI/2); })
