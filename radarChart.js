@@ -349,6 +349,7 @@ function RadarChart(id, data, options) {
 			d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 				.style("fill-opacity", 0.65)
 			d3.select("." + data[d][0][areaName].replace(/\s+/g, '') + "stroke")
+				.style("fill-opacity", 1)
 			clicked = true;
 		}
 		else
