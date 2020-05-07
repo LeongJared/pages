@@ -374,7 +374,7 @@ function RadarChart(id, data, options) {
 	/////////////////////////////////////////////////////////
 	/////////////////// Draw the Legend /////////////////////
 	/////////////////////////////////////////////////////////
-
+	<div id="legend"></div>
 	svg.append("g")
 		.attr("class", "legendOrdinal")
 		.attr("transform", "translate(" + cfg["legendPosition"]["x"] + "," + cfg["legendPosition"]["y"] + ")");
