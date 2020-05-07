@@ -122,9 +122,9 @@
 	<div class="dataviz"></div>
 	<script>
 	// set the dimensions and margins of the graph
-	var margin = {top: 100, right: 300, bottom: 100, left: 330},
-	    width = 710, //- margin.left - margin.right,
-	    height = 700; //- margin.top - margin.bottom;
+	var margin = {top: 200, right: 400, bottom: 200, left: 430},
+	    width = 1010, //- margin.left - margin.right,
+	    height = 1000; //- margin.top - margin.bottom;
 
 	// append the svg object to the body of the page
 	var svg = d3.select("#my_dataviz")
@@ -241,8 +241,8 @@
 	// append the svg object to the body of the page
 	var svg = d3.select("#dataviz_basicZoom")
 	  .append("svg")
-	    .attr("width",  710)
-	    .attr("height",  700)
+	    .attr("width",  910)
+	    .attr("height",  900)
 	    .call(d3.zoom().on("zoom", function () {
 	       svg.attr("transform", d3.event.transform)
 	    }))
