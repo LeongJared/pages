@@ -169,7 +169,7 @@
 	  
 	  // A function that change this tooltip when the user hover a point.
 	  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
-	  var mouseover = function(d) {
+	  var mouseenter = function(d) {
 	    tooltip
 	      .style("opacity", 1)
 	      .html("The exact value of<br>the duration is: " + d.duration + "<br/>The name of the song is: " + d.track)
@@ -197,7 +197,7 @@
 	      .style("fill", "#69b3a2")
 	      .style("opacity", 0.3)
 	      .style("stroke", "white")
-	    .on("hover", mouseover )
+	    .on("mouseenter", mouseenter )
 	    .on("mouseleave", mouseleave )
 
 	})
