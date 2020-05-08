@@ -132,7 +132,7 @@
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
 	    .attr("transform",
-		  "translate(" + 0 + "," + 0 + ")");
+		  "translate(" + margin.left + "," + margin.right + ")");
 
 	//Read the data
 	d3.csv("spotifyPlaylistDurations.csv", function(data) {
@@ -175,7 +175,7 @@
 	  var mouseover = function(d) {
 	    tooltip
 	      .style("opacity", 1)
-	    //selected_specie = d.year
+	      selected_specie = d.year
 
 	    d3.selectAll(".dot")
 	      .transition()
