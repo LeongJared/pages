@@ -177,19 +177,6 @@
 	  var mouseover = function(d) {
 	    tooltip
 	      .style("opacity", 1)
-	    selected_specie = d.years
-
-	    d3.selectAll(".dot")
-	      .transition()
-	      .duration(200)
-	      .style("fill", "lightgrey")
-	      .attr("r", 3)
-
-	    d3.selectAll("." + selected_specie)
-	      .transition()
-	      .duration(200)
-	      .style("fill", color(selected_specie))
-	      .attr("r", 7)
 	  }
 
 	  var mousemove = function(d) {
@@ -205,11 +192,6 @@
 	      .transition()
 	      .duration(200)
 	      .style("opacity", 0)
-	       d3.selectAll(".dot")
-	      .transition()
-	      .duration(200)
-	      .style("fill", "lightgrey")
-	      .attr("r", 5 )
 	  }
 
 	  // Add dots
