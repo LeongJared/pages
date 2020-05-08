@@ -155,9 +155,9 @@
 	    .call(d3.axisLeft(y));
 
 	// Add a clipPath: everything out of this area won't be drawn.
-	  var clip = svg.append("defs").append("SVG:clipPath")
+	  var clip = svg.append("defs").append("svg:clipPath")
 	      .attr("id", "clip")
-	      .append("SVG:rect")
+	      .append("svg:rect")
 	      .attr("width", width )
 	      .attr("height", height )
 	      .attr("x", 0)
