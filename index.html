@@ -225,7 +225,7 @@ var SVG = d3.select("#dataviz_axisZoom")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("spotifyPlaylistFixedExtreme", function(data) {
+d3.csv("spotifyPlaylistFixedExtreme.csv", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
