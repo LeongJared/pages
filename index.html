@@ -178,7 +178,7 @@
 	  }
 
 	  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
-	  var mouseleave = function(d) {
+	  var mouseout = function(d) {
 	    tooltip
 	      .transition()
 	      .duration(200)
@@ -198,7 +198,7 @@
 	      .style("opacity", 0.3)
 	      .style("stroke", "white")
 	    .on("mouseenter", mouseenter )
-	    .on("mouseleave", mouseleave )
+	    .on("mouseout", mouseout )
 
 	})
 	</script>
