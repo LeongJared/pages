@@ -349,7 +349,7 @@ function RadarChart(id, data, options) {
 		.on("cellover", function(d){ cellover(d); })
 		.on("cellout", function(d) { cellout(); });
 
-	svg.select(".legendOrdinal")
-		.call(legendOrdinal);
+	//svg.select(".legendOrdinal")
+		//.call(legendOrdinal);
 
 }//RadarChart
