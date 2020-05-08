@@ -347,7 +347,7 @@ function RadarChart(id, data, options) {
 		.shapePadding(10)
 		.scale(cfg.color)
 		.labels(cfg.color.domain().map(function(d){
-			return data[d][0][areaName];
+			return d.areaName;
 		}))
 		.on("cellover", function(d){ cellover(d); })
 		.on("cellout", function(d) { cellout(); });
