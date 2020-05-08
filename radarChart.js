@@ -346,9 +346,6 @@ function RadarChart(id, data, options) {
 		.shape("path", d3.svg.symbol().type("square").size(150)())
 		.shapePadding(10)
 		.scale(cfg.color)
-		.labels(cfg.color.domain().map(function(d){
-			return d.areaName;
-		}))
 		.on("cellover", function(d){ cellover(d); })
 		.on("cellout", function(d) { cellout(); });
 
