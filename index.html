@@ -119,13 +119,6 @@
 
 	<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 	
-	  <input type="checkbox" class="checkbox" value="Years 1960-1969" unchecked><label>1960</label>
-	  <input type="checkbox" class="checkbox" value="Years 1970-1979" unchecked><label>1970</label>
-	  <input type="checkbox" class="checkbox" value="Years 1980-1989" checked><label>1980</label>
-	  <input type="checkbox" class="checkbox" value="Years 1990-1999" checked><label>1990</label>
-	  <input type="checkbox" class="checkbox" value="Years 2000-2009" checked><label>2000</label>
-	  <input type="checkbox" class="checkbox" value="Years 2010-2019" checked><label>2010</label>
-	
 	<!-- Create a div where the graph will take place -->
 	<div id="my_dataviz"></div>
 	<div class="dataviz"></div>
@@ -176,11 +169,6 @@
 	    .style("border-radius", "5px")
 	    .style("padding", "10px")
 
-	  // Color scale: give me a specie name, I return a color
-	  var color = d3.scaleOrdinal()
-	    .domain(["setosa", "versicolor", "virginica" ])
-	    .range([ "#440154ff", "#21908dff", "#fde725ff"])
-
 	  
 	  // A function that change this tooltip when the user hover a point.
 	  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
@@ -219,32 +207,6 @@
 	    .on("mouseover", mouseover )
 	    .on("mousemove", mousemove )
 	    .on("mouseleave", mouseleave )
-
-	 function update(){
-	      // For each check box:
-	      d3.selectAll(".checkbox").each(function(d){
-		cb = d3.select(this);
-		grp = cb.property("value")
-
-		// If the box is check, I show the group
-		if(cb.property("checked")){
-		  svg.selectAll("."+grp).transition().duration(1000).style("opacity", 1).attr("r", function(d){ return size(d.size) })
-
-		// Otherwise I hide it
-		}else{
-		  svg.selectAll("."+grp).transition().duration(1000).style("opacity", 0).attr("r", 0)
-		}
-	      })
-	    }
-
-	    // When a button change, I run the update function
-	    d3.selectAll(".checkbox").on("change",update);
-
-	    // And I initialize it at the beginning
-	    update()
-	 	
-
-	})
 
 	</script>
 	
