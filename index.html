@@ -173,8 +173,8 @@
 	    .data(data)
 	    .enter()
 	    .append("circle")
-	      .attr("cx", function (d) { return x(d.Sepal_Length); } )
-	      .attr("cy", function (d) { return y(d.Petal_Length); } )
+	      .attr("cx", function (d) { return x(d.year); } )
+	      .attr("cy", function (d) { return y(d.duration); } )
 	      .attr("r", 8)
 	      .style("fill", "#61a3a9")
 	      .style("opacity", 0.5)
@@ -258,8 +258,8 @@
 	    // update circle position
 	    scatter
 	      .selectAll("circle")
-	      .attr('cx', function(d) {return newX(d.Sepal_Length)})
-	      .attr('cy', function(d) {return newY(d.Petal_Length)});
+	      .attr('cx', function(d) {return newX(d.year)})
+	      .attr('cy', function(d) {return newY(d.duration)});
 	  }
 	})
 	</script>
