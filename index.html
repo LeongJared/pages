@@ -117,6 +117,13 @@
 	<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3-scale-radial.js"></script>
 
 
+	
+	
+	<!-- Create a div where the graph will take place -->
+	<div id="my_dataviz"></div>
+	<div class="dataviz"></div>
+	<script>
+		
 	<div>
 	  <input type="checkbox" class="checkbox" value="Years 1960-1969" checked><label>1960</label>
 	  <input type="checkbox" class="checkbox" value="Years 1970-1979" checked><label>1970</label>
@@ -125,11 +132,6 @@
 	  <input type="checkbox" class="checkbox" value="Years 2000-2009" checked><label>2000</label>
 	  <input type="checkbox" class="checkbox" value="Years 2010-2019" checked><label>2010</label>
 	</div>
-	
-	<!-- Create a div where the graph will take place -->
-	<div id="my_dataviz"></div>
-	<div class="dataviz"></div>
-	<script>
 	// set the dimensions and margins of the graph
 	var margin = {top: 300, right: 500, bottom: 300, left: 530},
 	    width = 810, //- margin.left - margin.right,
