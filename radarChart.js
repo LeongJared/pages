@@ -339,17 +339,25 @@ function RadarChart(id, data, options) {
 		.attr("class", "legendOrdinal")
 		.attr("transform", "translate(" + cfg["legendPosition"]["x"] + "," + cfg["legendPosition"]["y"] + ")");
 
+	var categories = ["1960", "1970", "1980", "1990", "2000", "2010"];
+	
+	var ordinal = d3.scaleOrdinal()
+		.domain(categories)
+		.range(categories.map((val, i) =>
+			d3.interpolateYlGnBu(i / (categories.length - 1))
+		));
+	
 	var legendOrdinal = d3.legend.color()
 		//d3 symbol creates a path-string, for example
 		//"M0,-8.059274488676564L9.306048591020996,
 		//8.059274488676564 -9.306048591020996,8.059274488676564Z"
-		.shape("path", d3.svg.symbol().type("square").size(150)())
-		.shapePadding(10)
-		.scale(cfg.color)
+		//.shape("path", d3.svg.symbol().type("square").size(150)())
+		//.shapePadding(10)
+		.scale(ordinal)
 		.on("cellover", function(d){ cellover(d); })
 		.on("cellout", function(d) { cellout(); });
 
-	//svg.select(".legendOrdinal")
-		//.call(legendOrdinal);
+	svg.select(".legendOrdinal")
+		.call(legendOrdinal);
 
 }//RadarChart
