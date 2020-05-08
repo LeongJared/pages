@@ -166,26 +166,7 @@
 	  // Create the scatter variable: where both the circles and the brush take place
 	  var scatter = svg.append('g')
 	    .attr("clip-path", "url(#clip)")
-		
-		// Add circles
-	  scatter
-	    .selectAll("circle")
-	    .data(data)
-	    .enter()
-	    .append("circle")
-	      .attr("cx", function (d) { return x(d.year); } )
-	      .attr("cy", function (d) { return y(d.duration); } )
-	      .attr("r", 8)
-	      .style("fill", "#61a3a9")
-	      .style("opacity", 0.5)
-
-	  // Set the zoom and Pan features: how much you can zoom, on which part, and what to do when there is a zoom
-	  var zoom = d3.zoom()
-	      .scaleExtent([.5, 20])  // This control how much you can unzoom (x0.5) and zoom (x20)
-	      .extent([[0, 0], [width, height]])
-	      .on("zoom", updateChart);
-		
-	  // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
+		// Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
 	  // Its opacity is set to 0: we don't see it by default.
 	  var tooltip = d3.select("#my_dataviz")
 	    .append("div")
@@ -219,22 +200,28 @@
 	      .duration(200)
 	      .style("opacity", 0)
 	  }
-
-	  // Add dots
-	  svg.append('g')
-	    .selectAll("dot")
-	    .data(data) // the .filter part is just to keep a few dots on the chart, not all of them
+		// Add circles
+	  scatter
+	    .selectAll("circle")
+	    .data(data)
 	    .enter()
 	    .append("circle")
 	      .attr("cx", function (d) { return x(d.year); } )
 	      .attr("cy", function (d) { return y(d.duration); } )
-	      .attr("r", 7)
-	      .style("fill", "#69b3a2")
-	      .style("opacity", 0.3)
-	      .style("stroke", "white")
+	      .attr("r", 8)
+	      .style("fill", "#61a3a9")
+	      .style("opacity", 0.5)
 	    .on("mouseover", mouseover )
 	    .on("mousemove", mousemove )
 	    .on("mouseleave", mouseleave )
+
+	  // Set the zoom and Pan features: how much you can zoom, on which part, and what to do when there is a zoom
+	  var zoom = d3.zoom()
+	      .scaleExtent([.5, 20])  // This control how much you can unzoom (x0.5) and zoom (x20)
+	      .extent([[0, 0], [width, height]])
+	      .on("zoom", updateChart);
+		
+	  
 		
 	svg.append("rect")
 	      .attr("width", width)
